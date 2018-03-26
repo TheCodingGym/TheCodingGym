@@ -1,0 +1,32 @@
+{
+  "name": "thecodinggym",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonpark107/TheCodingGym.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simonpark107/TheCodingGym/issues"
+  },
+  "homepage": "https://github.com/simonpark107/TheCodingGym#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
+    "material-ui": "^0.20.0",
+    "mongoose": "^5.0.11",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react": "^6.24.1"
+  }
+}
