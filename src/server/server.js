@@ -14,10 +14,10 @@ const mongoose = require('mongoose');
 const keys = require('../config/keys.js');
 mongoose.connect(keys.mongoURI);
 mongoose.connection.once('open', () => {
-    console.log('^^^^^^CONNECTED TO THE DATABASE^^^^^');
-  });
+console.log('^^^^^^CONNECTED TO THE DATABASE^^^^^');
+});
 
-  // COOKIES
+// COOKIES
 app.use(cookieParser('process.env.COOKIE_SECRET'));
 
 //  PATH FOR STATIC FILES
@@ -26,5 +26,7 @@ app.use('/css', express.static(path.join(__dirname, './../client/css')));
 app.get('/', (request, response) => {
   res.sendFile(path.join(__dirname, './../../index.html'));
 });
+
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log('******SERVER LISTENING ON PORT 3000******'));
