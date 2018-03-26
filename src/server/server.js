@@ -1,9 +1,8 @@
+// REQUIRED
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-
 const bodyParser = require('body-parser');
-
 const cookieParser = require('cookie-parser');
 
 //  EXPRESS
@@ -13,12 +12,18 @@ app.use(bodyParser.json());
 
 //  MONGOOSE
 mongoose.connection.once('open', () => {
-    console.log('===CONNECTED TO DATABASE===');
-  });
+  console.log('===CONNECTED TO DATABASE===');
+});
 
-  // COOKIES
+// COOKIES
 app.use(cookieParser('process.env.COOKIE_SECRET'));
-// 
+
+//  PATH FOR STATIC FILES
+app.use(express.static(`${__dirname}./../../`));
+app.use('/css', express.static(path.join(__dirname, './../client/css')));
+app.get('*', (request, response) => {
+  response.sendFile(path.resolve(__dirname, './../../index.html'));
+});
 
 const PORT = process.env.PORT || 3000;
 
