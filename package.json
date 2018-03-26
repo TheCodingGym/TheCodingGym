@@ -2,13 +2,15 @@
   "name": "thecodinggym",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/simonpark107/TheCodingGym.git"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/webpack -w",
+    "server": "nodemon src/server/server.js",
+    "webpack": "./node_modules/.bin/webpack -w"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +34,7 @@
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
