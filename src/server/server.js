@@ -1,3 +1,4 @@
+// REQUIRE
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -7,14 +8,13 @@ const express = require('express');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const PORT = process.env.PORT || 3000;
 
 //  MONGOOSE
 const mongoose = require('mongoose');
 const keys = require('../config/keys.js');
 mongoose.connect(keys.mongoURI);
 mongoose.connection.once('open', () => {
-console.log('^^^^^^CONNECTED TO THE DATABASE^^^^^');
+  console.log('^^^^^^CONNECTED TO THE DATABASE^^^^^');
 });
 
 // COOKIES
