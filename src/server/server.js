@@ -31,10 +31,10 @@ app.use((err, req, res, next) => {
 })
 
 
-// app.use('/css', express.static(path.join(__dirname, './../client/css')));
-// app.get('/', (request, response) => {
-//   res.sendFile(path.join(__dirname, './../../index.html'));
-// });
+app.use('/css', express.static(path.join(__dirname, './../client/css')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './../../index.html'));
+});
 
 const PORT = process.env.PORT || 3000;
 
