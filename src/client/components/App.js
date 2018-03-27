@@ -4,7 +4,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import Landing from './Landing/Landing';
 import Category from './Category/Category';
 import QuestionPage from './Questionnaire/QuestionPage';
-import Contributor from './Contributor/Contributor';
+import ContributorForm from './Contributor/ContributorForm';
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class App extends Component {
           <Switch>
             <Route path="/category" component={Category} />
             <Route path="/questionpage" component={QuestionPage} />
-            <Route path="/contributor" component={Contributor} />
+            <Route path="/contributor" component={ContributorForm} />
             <Route exact path="/" component={Landing} />
           </Switch>
         </main>

@@ -6,19 +6,20 @@ import FETCH_ANSWER from './types';
 import DELETE_QUESTION from './types';
 
 //values object is the contribution (category, question, answer)
-export const createContribution = values => async dispatch => {
-  const res = await axios.post('/questions', values);
-  console.log('submitContribution values === ', values);
+export function createContribution(values, callback) {
+  //make api request. After api is resolved then call the callback function
+  const request = axios.post('/questions', values).then(() => callback());
   return {
     type: CREATE_CONTRIBUTION,
-    payload: res
+    payload: request
   };
-};
+}
+// PLEASE IGNORE BELOW FOR NOW
 // export const createContribution = values => async dispatch => {
-//   const res = await axios.post('/questions', values);
+//   const request = await axios.post('/questions', values);
 //   console.log('submitContribution values === ', values);
 //   return {
 //     type: CREATE_CONTRIBUTION,
-//     payload: res
+//     payload: request
 //   };
 // };
