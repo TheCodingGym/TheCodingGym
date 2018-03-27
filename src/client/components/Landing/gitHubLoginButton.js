@@ -1,10 +1,12 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
+import { grey900 } from 'material-ui/styles/colors'
 
 const styles = {
     button: {
         margin: 12,
+        backgroundColor: 'black'
     },
     exampleImageInput: {
         cursor: 'pointer',
@@ -24,7 +26,6 @@ const GitHubLoginButton = () => (
             href="https://github.com/callemall/material-ui"
             target="_blank"
             label="Sign in with GitHub"
-            secondary={true}
             style={styles.button}
             icon={<FontIcon className="fab fa-github" />}
         />

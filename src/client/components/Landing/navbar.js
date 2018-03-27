@@ -1,6 +1,7 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
+import { grey900 } from 'material-ui/styles/colors'
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
 import GitHubLoginButton from './gitHubLoginButton'
@@ -14,7 +15,8 @@ const styles = {
         cursor: 'pointer',
     },
     gitHub: {
-        backgroundColor: 'black',
+        backgroundColor: '#000000',
+        color: 'white'
     },
 };
 
