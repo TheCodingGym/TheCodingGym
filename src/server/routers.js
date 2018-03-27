@@ -1,0 +1,81 @@
+const express = require('express');
+const request = require('request');
+const router = express.Router();
+const QandA = require('./model.js');
+
+router.use((req,res,next) => {
+    console.log('this workig hereee');
+    next();
+  })
+  router.get('/', (req, res) => { //on the api route localhost3000/api
+    console.log('in here')
+    res.json({ message: 'welcome to our api!'})
+  });
+  
+router.route('/questions')
+.post((req, res) => {
+  let qAndA = new QandA(); // create a new instance of the model
+  qAndA.category = req.body.category; 
+  qAndA.question = req.body.question; // set the question coming from the request
+  qAndA.answer = req.body.answer; // set the answer coming from the request
+  qAndA.save(err => {
+    if (err) res.send(err);
+    res.json({message: 'q&a created!'});
+  });
+})
+.get((req, res) => {
+  QandA.find((err, question) => {
+    let category = question.category;
+    let questionList = question.question;
+    if (err) {
+      res.send(err);
+      console.log('got an err')
+    }
+    // if (req.body.category === category) { //NEED TO MODIFY DEPENDING ON HOW API CALL IS MADE ON FRONT END
+    // res.json(questionList); //send all algo questions
+    // } else {
+    //   console.log('are we in here')
+      res.json(question)
+    // }
+  })
+});
+
+router.route('/questions/:questions_id') //route added to get question by ID
+.get((req, res) => {
+  QandA.findById(req.params.questions_id, (err, question) => {
+    if (err) {
+      res.send(err);
+      console.log('got an err up in hurr')
+    }
+    res.json(question);
+  })
+})
+.put((req, res) => {  //route to update question
+  QandA.findById(req.params.questions_id, (err, question) => {
+    if (err) {
+      res.send(err);
+      console.log('got an err up in hurr in the put route')
+    }
+    question.answer = req.body.answer; //updates the answer
+    question.save(err => {
+      if (err) res.send(err);
+      res.json({message: 'answer updated!'});
+    });
+  });
+})
+.delete((req,res) => {
+  QandA.remove({
+    _id: req.params.questions_id
+  }, (err, question) => {
+    if (err) res.send(err)
+    res.json({message: 'successfully deleted'})
+  });
+});
+
+router.all('*', (req, res, next) => {
+  err = new Error('router.js - default catch all route - not found');
+  err.status = 404;
+  next(err);
+});
+
+module.exports = router;
