@@ -36,6 +36,13 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './../../index.html'));
 });
 
+<<<<<<< HEAD
+app.use('/css', express.static(path.join(__dirname, './../client/css')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './../../index.html'));
+});
+=======
+>>>>>>> 73ba1c03e028f77d66832b0cb0b4f82d652b888a
 
 const PORT = process.env.PORT || 3000;
 
