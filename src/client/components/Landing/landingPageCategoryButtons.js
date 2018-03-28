@@ -3,41 +3,49 @@ import { Component } from 'react';
 import axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
 import '../../css/Landing.css';
+import CategoryList from '../Category/CategoryList'
+import { Link } from 'react-router-dom';
 
 const style = {
-  margin: '12px auto',
-  width: 300,
-  height: 50,
-  display: 'block'
+margin: '12px auto',
+width: 300,
+height: 50,
+display: 'block'
 };
 
 class LandingPageCategoryButtons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: ''
+        category: '',
+        results: ''
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick(e) {
     let category = e.currentTarget.value;
     console.log(category);
     axios({
-      method: 'post',
-      url: 'api/questions/',
-      data: { category }
-    }).then(res => {
-      const category = res.data;
-      // this.setState({ category });
-      console.log('this is the data sent', category); //check back here, why di dthis not console
-    });
-  }
+        method: 'post',
+        url:'api/questions/',
+        data: { category }
+    })
+    .then(res => {
+        this.setState({ 
+            category: category,
+            results: res.data.results
+        });
+        console.log('this is the data sent back from post', res.data.results); //check back here, why di dthis not console
+    })
+}
   // componentDidMount() {
   //     /////////
   // }
   render() {
     return (
       <div id="categoryContainer">
+      <Link to="/category">
         <RaisedButton
           label="Algorithms"
           value="Algorithms"
@@ -45,6 +53,7 @@ class LandingPageCategoryButtons extends Component {
           style={style}
           onClick={this.handleClick}
         />
+    </Link>
         <br />
         <RaisedButton
           label="System Design"
