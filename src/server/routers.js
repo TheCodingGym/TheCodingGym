@@ -29,8 +29,7 @@ router
       } else {
         let category = req.body.category;
         QandA.find({ category: category }, (err, question) => {
-          // console.log('this is q: ', question)
-          // console.log('this is length of request', question.length);
+
           let results = [];
           for (let i = 0; i < question.length; i++) {
             let categoryQ = question[i].question;
@@ -46,13 +45,6 @@ router
             results
           });
         });
-
-        // QandA.find(req.params.category, (err, question) => {
-        //   console.log('are we in here')
-        //     // return res.json(question);
-        //     console.log('this is question', question)
-        //   res.json({question: question.question, answer: question.answer});
-        //   })
       }
     });
   })
@@ -76,47 +68,6 @@ router
       };
     });
   });
-
-// router
-//   .route('/questions')
-//   .post((req, res) => {
-//     let qAndA = new QandA();
-//     console.log(req.body, 'this is the post method'); // create a new instance of the model
-//     qAndA.category = req.body.category;
-//     qAndA.question = req.body.question; // set the question coming from the request
-//     qAndA.answer = req.body.answer; // set the answer coming from the request
-//     qAndA.save(err => {
-//       if (err) {
-//         res.send(err);
-//       } else {
-//         QandA.find(req.params.questions_id, (err, question) => {
-//           res.json({ question: question.question, answer: question.answer });
-//         });
-//       }
-//     });
-//   })
-//   .get((req, res) => {
-//     console.log(req.data, 'cateogry!!!!');
-//     QandA.find(req.params.questions_id, (err, question) => {
-//       (err, question) => {
-//         console.log('we here in get');
-//         console.log('this is data from get api side', question);
-//         // let category = question.category;
-//         // let questionList = question.question;
-//         if (err) {
-//           res.send(err);
-//           console.log('got an err');
-//         }
-//         // if (req.body.category === category) { //NEED TO MODIFY DEPENDING ON HOW API CALL IS MADE ON FRONT END
-//         // res.json(questionList); //send all algo questions
-//         // } else {
-//         //   console.log('are we in here')
-//         res.json(question);
-//         // }
-//       };
-//     });
-//   });
-
 router
   .route('/questions/:questions_id') //route added to get question by ID
   .get((req, res) => {

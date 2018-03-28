@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
-        {/* header / navbar goes here */}
+        <Navbar />
         <main>
           <Switch>
             <Route path="/category" component={Category} />

@@ -14,10 +14,9 @@ class Category extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {
-    category: ownProps.category
-  };
+function mapStateToProps(state) {
+  console.log('=== STATE ===', state);
+  return { category: state.category };
 }
 
 export default connect(mapStateToProps)(Category);
