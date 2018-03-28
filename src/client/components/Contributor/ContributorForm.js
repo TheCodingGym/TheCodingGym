@@ -1,19 +1,25 @@
+// REACT
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+// REDUX
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-//MATERIAL UI
+// MATERIAL UI
 import TextField from 'material-ui/TextField';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-import { createContribution } from './../../actions';
+// FILES
 import Category from '../Category/Category';
 
+// ACTION CREATOR
+import { createContribution } from './../../actions';
+
 class ContributorForm extends Component {
-  renderRadioGroup = ({ input, ...rest }) => {
+  renderRadioGroup({ input, ...rest }) {
     return (
       <div>
         <RadioButtonGroup
@@ -24,9 +30,9 @@ class ContributorForm extends Component {
         />
       </div>
     );
-  };
+  }
 
-  renderField = field => {
+  renderField(field) {
     const classNameDanger = `form-group ${
       field.meta.touched && field.meta.error ? 'has-danger' : ''
     }`;
@@ -40,21 +46,28 @@ class ContributorForm extends Component {
         </div>
       </div>
     );
-  };
+  }
 
-  onSubmit = values => {
+  onSubmit(values) {
     //if reduxform(handleSubmit) says that everything is valid... then call onSubmit
     console.log('onSubmit values=== ', values);
+    // this.props.createContribution(values).then(() => {
+    //   console.log('=== HEREEEEEEEEEE ====');
+    //   this.props.history.push('/');
+    // });
+    console.log('=== CREATECONTRIBUTION === ', this.props.createContribution);
+
     this.props.createContribution(values, () => {
+      console.log('=== HEERRRREEEEEEE ====');
       this.props.history.push('/');
     });
-  };
+  }
 
   render() {
     const handleSubmit = this.props.handleSubmit;
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <label>Category:</label>
+        {/* <label>Category:</label> */}
         <Field fieldTitle="Category:" name="category" component={this.renderRadioGroup}>
           <RadioButton value="Algorithm" label="Algorithm" />
           <RadioButton value="System Design" label="System Design" />
