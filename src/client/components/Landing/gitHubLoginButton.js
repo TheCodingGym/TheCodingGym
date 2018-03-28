@@ -11,9 +11,6 @@ const styles = {
   button: {
     margin: 12
   },
-  oauth: {
-    backgroundColor: "red"
-  },
   exampleImageInput: {
     cursor: "pointer",
     position: "absolute",
@@ -33,7 +30,7 @@ const GitHubLoginButton = () => (
       redirectUri="http://localhost:3000/cb"
       onSuccess={onSuccess}
       onFailure={onFailure}
-      style={styles.oauth}
+      className="gitHubLogin"
     >
       <RaisedButton
         href="https://github.com/callemall/material-ui"

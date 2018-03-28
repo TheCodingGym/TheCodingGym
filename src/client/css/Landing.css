@@ -14,3 +14,11 @@
   width: 50%;
   float: left;
 }
+
+.gitHubLogin {
+  padding: 0;
+  border-width: 0px;
+  border-style: none;
+  border-color: transparent;
+  background-color: transparent;
+}

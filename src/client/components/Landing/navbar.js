@@ -27,7 +27,9 @@ const Navbar = () => (
     title={<span style={styles.title}>Logo</span>}
     onTitleClick={handleClick}
     // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-    iconElementRight={<GitHubLoginButton style={styles.gitHub} />}
+    iconElementRight={
+      <GitHubLoginButton className="gitHubLogin" style={styles.gitHub} />
+    }
   />
 );
 

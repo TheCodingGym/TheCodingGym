@@ -6,7 +6,7 @@ import "../../css/Landing.css";
 
 const style = {
   margin: "12px auto",
-  width: "60%",
+  width: 300,
   height: 50,
   display: "block"
 };
