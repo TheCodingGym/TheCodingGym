@@ -1,44 +1,54 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import '../../css/Landing.css';
 
 const style = {
+
     algorithms: {
         margin: 12,
         width: 300,
         height: 50,
-        position: 'absolute',
-        top: 180,
-        left: 850,
+        // display: 'inline-block',
+        // float: 'right',
+        position: 'relative',
+        top: '160%',
+        left: '70%',
     },
     systemDesign: {
         margin: 12,
         width: 300,
         height: 50,
-        position: 'absolute',
-        top: 240,
-        left: 850,
+        // display: 'inline-block',
+        // float: 'right',
+        position: 'relative',
+        top: '160%',
+        left: '70%',
     },
     frontEnd: {
         margin: 12,
         width: 300,
         height: 50,
-        position: 'absolute',
-        top: 300,
-        left: 850,
+        // display: 'inline-block',
+        // float: 'right',
+        position: 'relative',
+        top: '160%',
+        left: '70%',
     },
     backEnd: {
         margin: 12,
         width: 300,
         height: 50,
-        position: 'absolute',
-        top: 360,
-        left: 850,
+        // display: 'inline-block',
+        // float: 'right',
+        position: 'relative',
+        top: '160%',
+        left: '70%',
     }
 
 };
 
 const LandingPageCategoyButtons = () => (
-    <div>
+    <div className='landing-page-buttons'>
         <RaisedButton label="Algorithms" primary={true} style={style.algorithms} />
         <br />
         <RaisedButton label="System Design" primary={true} style={style.systemDesign} />
