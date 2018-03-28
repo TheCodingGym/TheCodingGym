@@ -3,7 +3,6 @@ import { Component } from 'react';
 import axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
 import '../../css/Landing.css';
-import CategoryList from '../Category/CategoryList'
 import { Link } from 'react-router-dom';
 
 const style = {
@@ -32,10 +31,10 @@ class LandingPageCategoryButtons extends Component {
         data: { category }
     })
     .then(res => {
-        this.setState({ 
-            category: category,
-            results: res.data.results
-        });
+        // this.setState({ 
+        //     category: category,
+        //     results: res.data.results
+        // });
         console.log('this is the data sent back from post', res.data.results); //check back here, why di dthis not console
     })
 }
@@ -47,8 +46,8 @@ class LandingPageCategoryButtons extends Component {
       <div id="categoryContainer">
       <Link to="/category">
         <RaisedButton
-          label="Algorithms"
-          value="Algorithms"
+          label="Algorithm"
+          value="Algorithm"
           primary={true}
           style={style}
           onClick={this.handleClick}
