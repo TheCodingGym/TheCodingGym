@@ -2,39 +2,49 @@ import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
+import '../../css/Landing.css';
 
 const style = {
+
     algorithms: {
         margin: 12,
         width: 300,
         height: 50,
-        position: 'absolute',
-        top: 180,
-        left: 850,
+        // display: 'inline-block',
+        // float: 'right',
+        position: 'relative',
+        top: '160%',
+        left: '70%',
     },
     systemDesign: {
         margin: 12,
         width: 300,
         height: 50,
-        position: 'absolute',
-        top: 240,
-        left: 850,
+        // display: 'inline-block',
+        // float: 'right',
+        position: 'relative',
+        top: '160%',
+        left: '70%',
     },
     frontEnd: {
         margin: 12,
         width: 300,
         height: 50,
-        position: 'absolute',
-        top: 300,
-        left: 850,
+        // display: 'inline-block',
+        // float: 'right',
+        position: 'relative',
+        top: '160%',
+        left: '70%',
     },
     backEnd: {
         margin: 12,
         width: 300,
         height: 50,
-        position: 'absolute',
-        top: 360,
-        left: 850,
+        // display: 'inline-block',
+        // float: 'right',
+        position: 'relative',
+        top: '160%',
+        left: '70%',
     }
 
 };
@@ -74,7 +84,7 @@ class LandingPageCategoryButtons extends Component {
             <RaisedButton label="Front End" value="Front End" primary={true} style={style.frontEnd} onClick={this.handleClick} />
             <br />
             <RaisedButton label="Back End" value="Back End" primary={true} style={style.backEnd} onClick={this.handleClick} />
-        </div>  
+        </div> 
         )
     }
 }
