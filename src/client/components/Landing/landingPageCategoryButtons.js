@@ -1,50 +1,45 @@
+// REACT
 import React from 'react';
 import { Component } from 'react';
-import axios from 'axios';
-import RaisedButton from 'material-ui/RaisedButton';
-import '../../css/Landing.css';
 import { Link } from 'react-router-dom';
 
+// REDUX
+import { connect } from 'react-redux';
+
+// ACTION CREATOR
+import { fetchQuestions } from './../../actions';
+
+// MATERIAL UI & CSS
+import RaisedButton from 'material-ui/RaisedButton';
+import '../../css/Landing.css';
+
 const style = {
-margin: '12px auto',
-width: 300,
-height: 50,
-display: 'block'
+  margin: '12px auto',
+  width: 300,
+  height: 50,
+  display: 'block'
 };
 
 class LandingPageCategoryButtons extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-        category: '',
-        results: ''
-    };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
+  handleClick = e => {
     let category = e.currentTarget.value;
-    console.log(category);
-    axios({
-        method: 'post',
-        url:'api/questions/',
-        data: { category }
-    })
-    .then(res => {
-        // this.setState({ 
-        //     category: category,
-        //     results: res.data.results
-        // });
-        console.log('this is the data sent back from post', res.data.results); //check back here, why di dthis not console
-    })
-}
-  // componentDidMount() {
-  //     /////////
-  // }
+    this.props.fetchQuestions(category, () => {
+      this.props.history.push('/category');
+    });
+
+    // this.props.fetchQuestions(category).then(() => {
+    //   console.log('=== RIGHT HEREEEEE ===');
+    //   this.props.history.push('/category');
+    // });
+  };
+
   render() {
     return (
       <div id="categoryContainer">
-      <Link to="/category">
         <RaisedButton
           label="Algorithm"
           value="Algorithm"
@@ -52,7 +47,6 @@ class LandingPageCategoryButtons extends Component {
           style={style}
           onClick={this.handleClick}
         />
-    </Link>
         <br />
         <RaisedButton
           label="System Design"
@@ -82,4 +76,4 @@ class LandingPageCategoryButtons extends Component {
   }
 }
 
-export default LandingPageCategoryButtons;
+export default connect(null, { fetchQuestions })(LandingPageCategoryButtons);
