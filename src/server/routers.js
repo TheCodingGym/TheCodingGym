@@ -14,19 +14,31 @@ router.use((req,res,next) => {
   
 router.route('/questions')
 .post((req, res) => {
-  let qAndA = new QandA(); // create a new instance of the model
+  let qAndA = new QandA();
+  console.log(req.body, 'this is the post method') // create a new instance of the model
   qAndA.category = req.body.category; 
   qAndA.question = req.body.question; // set the question coming from the request
   qAndA.answer = req.body.answer; // set the answer coming from the request
   qAndA.save(err => {
-    if (err) res.send(err);
-    res.json({message: 'q&a created!'});
-  });
+    if (err) {
+      res.send(err);
+    } else {
+      QandA.find(req.params.questions_id, (err, question) => {
+        (err, question) => {
+        res.json({question: question.question, answer: question.answer});
+        }
+      });
+    }
+  })
 })
 .get((req, res) => {
-  QandA.find((err, question) => {
-    let category = question.category;
-    let questionList = question.question;
+  console.log(req.data, 'cateogry!!!!')
+  QandA.find(req.params.questions_id, (err, question) => {
+    (err, question) => {
+    console.log('we here in get')
+    console.log('this is data from get api side', question)
+    // let category = question.category;
+    // let questionList = question.question;
     if (err) {
       res.send(err);
       console.log('got an err')
@@ -37,6 +49,7 @@ router.route('/questions')
     //   console.log('are we in here')
       res.json(question)
     // }
+    }
   })
 });
 
