@@ -24,7 +24,6 @@ const GitHubLoginButton = () => (
             href="https://github.com/callemall/material-ui"
             target="_blank"
             label="Sign in with GitHub"
-            secondary={true}
             style={styles.button}
             icon={<FontIcon className="fab fa-github" />}
         />
