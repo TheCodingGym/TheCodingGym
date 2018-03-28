@@ -1,62 +1,79 @@
+// REACT
 import React from 'react';
+import { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+// REDUX
+import { connect } from 'react-redux';
+
+// ACTION CREATOR
+import { fetchQuestions } from './../../actions';
+
+// MATERIAL UI & CSS
 import RaisedButton from 'material-ui/RaisedButton';
 import '../../css/Landing.css';
 
 const style = {
-
-    algorithms: {
-        margin: 12,
-        width: 300,
-        height: 50,
-        // display: 'inline-block',
-        // float: 'right',
-        position: 'relative',
-        top: '160%',
-        left: '70%',
-    },
-    systemDesign: {
-        margin: 12,
-        width: 300,
-        height: 50,
-        // display: 'inline-block',
-        // float: 'right',
-        position: 'relative',
-        top: '160%',
-        left: '70%',
-    },
-    frontEnd: {
-        margin: 12,
-        width: 300,
-        height: 50,
-        // display: 'inline-block',
-        // float: 'right',
-        position: 'relative',
-        top: '160%',
-        left: '70%',
-    },
-    backEnd: {
-        margin: 12,
-        width: 300,
-        height: 50,
-        // display: 'inline-block',
-        // float: 'right',
-        position: 'relative',
-        top: '160%',
-        left: '70%',
-    }
-
+  margin: '12px auto',
+  width: 300,
+  height: 50,
+  display: 'block'
 };
 
-const LandingPageCategoyButtons = () => (
-    <div className='landing-page-buttons'>
-        <RaisedButton label="Algorithms" primary={true} style={style.algorithms} />
-        <br />
-        <RaisedButton label="System Design" primary={true} style={style.systemDesign} />
-        <br />
-        <RaisedButton label="Front End" primary={true} style={style.frontEnd} />
-        <br />
-        <RaisedButton label="Back End" primary={true} style={style.backEnd} />
-    </div>
-);
+class LandingPageCategoryButtons extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default LandingPageCategoyButtons;
+  handleClick = e => {
+    let category = e.currentTarget.value;
+    this.props.fetchQuestions(category, () => {
+      this.props.history.push('/category');
+    });
+
+    // this.props.fetchQuestions(category).then(() => {
+    //   console.log('=== RIGHT HEREEEEE ===');
+    //   this.props.history.push('/category');
+    // });
+  };
+
+  render() {
+    return (
+      <div id="categoryContainer">
+        <RaisedButton
+          label="Algorithm"
+          value="Algorithm"
+          primary={true}
+          style={style}
+          onClick={this.handleClick}
+        />
+        <br />
+        <RaisedButton
+          label="System Design"
+          value="System Design"
+          primary={true}
+          style={style}
+          onClick={this.handleClick}
+        />
+        <br />
+        <RaisedButton
+          label="Front End"
+          value="Front End"
+          primary={true}
+          style={style}
+          onClick={this.handleClick}
+        />
+        <br />
+        <RaisedButton
+          label="Back End"
+          value="Back End"
+          primary={true}
+          style={style}
+          onClick={this.handleClick}
+        />
+      </div>
+    );
+  }
+}
+
+export default connect(null, { fetchQuestions })(LandingPageCategoryButtons);
