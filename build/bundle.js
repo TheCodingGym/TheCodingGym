@@ -63761,15 +63761,15 @@ exports.default = function () {
   var action = arguments[1];
 
   switch (action.type) {
-    case _actions.FETCH_QUESTIONS:
-      console.log('=== REDUCER ===', action.payload);
+    case _types.FETCH_QUESTIONS:
+      console.log('=== ACTION PAYLOAD ===', action.payload);
       return _lodash2.default.map(action.payload);
     default:
       return state;
   }
 };
 
-var _actions = __webpack_require__(203);
+var _types = __webpack_require__(722);
 
 var _lodash = __webpack_require__(959);
 
