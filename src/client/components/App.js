@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
-import Navbar from './Landing/navbar'
-import Landing from './Landing/Landing';
-import Category from './Category/Category';
-import QuestionPage from './Questionnaire/QuestionPage';
-import ContributorForm from './Contributor/ContributorForm';
+import React, { Component } from "react";
+import { Route, Redirect, Switch } from "react-router-dom";
+
+import Landing from "./Landing/Landing";
+import Category from "./Category/Category";
+import QuestionPage from "./Questionnaire/QuestionPage";
+import ContributorForm from "./Contributor/ContributorForm";
+
+import reset from "reset-css";
 
 class App extends Component {
   constructor(props) {

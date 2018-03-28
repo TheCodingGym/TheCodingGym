@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simonpark107/TheCodingGym.git"
+    "url": "https://github.com/simonpark107/TheCodingGym.git"
   },
   "scripts": {
     "start": "./node_modules/.bin/webpack -w & nodemon src/server/server.js",
@@ -29,6 +29,7 @@
     "path": "^0.12.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-github-login": "^1.0.3",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -36,13 +37,15 @@
     "redux-form": "^7.3.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "reset-css": "^3.0.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
