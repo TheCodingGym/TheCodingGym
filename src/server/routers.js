@@ -32,11 +32,13 @@ router
 
           let results = [];
           for (let i = 0; i < question.length; i++) {
-            let categoryQ = question[i].question;
+            let category = question[i].category;
+            let quest = question[i].question;
             let ans = question[i].answer;
-            if (categoryQ && ans) {
+            if (quest && ans) {
               results.push({
-                question: categoryQ,
+                category: category,
+                question: quest,
                 answer: ans
               });
             }
