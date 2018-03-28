@@ -1,0 +1,8 @@
+.landing-page-buttons {
+    margin: 12;
+    width: 300;
+    height: 50;
+    display: 'inline-block';
+    float: 'right'
+}
+
