@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-
+import Navbar from './Landing/navbar'
 import Landing from './Landing/Landing';
 import Category from './Category/Category';
 import QuestionPage from './Questionnaire/QuestionPage';
@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
-        {/* header / navbar goes here */}
+        <Navbar />
         <main>
           <Switch>
             <Route path="/category" component={Category} />
