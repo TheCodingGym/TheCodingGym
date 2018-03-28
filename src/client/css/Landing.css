@@ -1,8 +1,16 @@
-.landing-page-buttons {
-    margin: 12;
-    width: 300;
-    height: 50;
-    display: 'inline-block';
-    float: 'right'
+.container {
+  width: 980px;
+  margin: 0 auto;
 }
 
+#categoryContainer {
+  margin-top: 128px;
+  width: 50%;
+  float: right;
+}
+
+#gitHubWrap {
+  margin-top: 128px;
+  width: 50%;
+  float: left;
+}

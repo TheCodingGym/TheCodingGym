@@ -1,21 +1,21 @@
-import React from 'react';
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import FlatButton from 'material-ui/FlatButton';
-import GitHubLoginButton from './gitHubLoginButton'
+import React from "react";
+import AppBar from "material-ui/AppBar";
+import IconButton from "material-ui/IconButton";
+import NavigationClose from "material-ui/svg-icons/navigation/close";
+import FlatButton from "material-ui/FlatButton";
+import GitHubLoginButton from "./gitHubLoginButton";
 
 function handleClick() {
-    alert('onClick triggered on the title component');
+  alert("onClick triggered on the title component");
 }
 
 const styles = {
-    title: {
-        cursor: 'pointer',
-    },
-    gitHub: {
-        backgroundColor: 'black',
-    },
+  title: {
+    cursor: "pointer"
+  },
+  gitHub: {
+    backgroundColor: "black"
+  }
 };
 
 /**
@@ -23,12 +23,12 @@ const styles = {
  * through the `onClick` property, and a [FlatButton](/#/components/flat-button) on the right.
  */
 const Navbar = () => (
-    <AppBar
-        title={<span style={styles.title}>Logo</span>}
-        onTitleClick={handleClick}
-        // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-        iconElementRight={<GitHubLoginButton style={styles.gitHub} />}
-    />
+  <AppBar
+    title={<span style={styles.title}>Logo</span>}
+    onTitleClick={handleClick}
+    // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+    iconElementRight={<GitHubLoginButton style={styles.gitHub} />}
+  />
 );
 
 export default Navbar;
