@@ -9,13 +9,14 @@ class Category extends Component {
     const categoryList = this.props.category;
 
     console.log('=== CATEGORY ===', categoryList);
-    
+
     return <div> this is Category Page </div>;
   }
 }
 
-function mapStatetoProps(state) {
+function mapStateToProps(state) {
+  console.log('=== STATE ===', state);
   return { category: state.category };
 }
 
-export default connect(mapStatetoProps)(Category);
+export default connect(mapStateToProps)(Category);

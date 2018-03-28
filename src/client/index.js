@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 // REDUX
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-// import reduxThunk from 'redux-thunk';
+import reduxThunk from 'redux-thunk';
 import promise from 'redux-promise';
 
 // MATERIAL UI
@@ -16,7 +16,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import App from './components/App';
 import reducers from './reducers';
 
-const store = applyMiddleware(promise)(createStore); //Redux Store
+const store = applyMiddleware(reduxThunk)(createStore); //Redux Store
 // const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
