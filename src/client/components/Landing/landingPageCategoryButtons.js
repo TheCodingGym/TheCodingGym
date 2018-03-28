@@ -5,46 +5,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 import '../../css/Landing.css';
 
 const style = {
-  algorithms: {
-    margin: 12,
-    width: 300,
-    height: 50,
-    // display: 'inline-block',
-    // float: 'right',
-    position: 'relative',
-    top: '160%',
-    left: '70%'
-  },
-  systemDesign: {
-    margin: 12,
-    width: 300,
-    height: 50,
-    // display: 'inline-block',
-    // float: 'right',
-    position: 'relative',
-    top: '160%',
-    left: '70%'
-  },
-  frontEnd: {
-    margin: 12,
-    width: 300,
-    height: 50,
-    // display: 'inline-block',
-    // float: 'right',
-    position: 'relative',
-    top: '160%',
-    left: '70%'
-  },
-  backEnd: {
-    margin: 12,
-    width: 300,
-    height: 50,
-    // display: 'inline-block',
-    // float: 'right',
-    position: 'relative',
-    top: '160%',
-    left: '70%'
-  }
+  margin: '12px auto',
+  width: 300,
+  height: 50,
+  display: 'block'
 };
 
 class LandingPageCategoryButtons extends Component {
@@ -78,7 +42,7 @@ class LandingPageCategoryButtons extends Component {
           label="Algorithms"
           value="Algorithms"
           primary={true}
-          style={style.algorithms}
+          style={style}
           onClick={this.handleClick}
         />
         <br />
@@ -86,7 +50,7 @@ class LandingPageCategoryButtons extends Component {
           label="System Design"
           value="System Design"
           primary={true}
-          style={style.systemDesign}
+          style={style}
           onClick={this.handleClick}
         />
         <br />
@@ -94,7 +58,7 @@ class LandingPageCategoryButtons extends Component {
           label="Front End"
           value="Front End"
           primary={true}
-          style={style.frontEnd}
+          style={style}
           onClick={this.handleClick}
         />
         <br />
@@ -102,7 +66,7 @@ class LandingPageCategoryButtons extends Component {
           label="Back End"
           value="Back End"
           primary={true}
-          style={style.backEnd}
+          style={style}
           onClick={this.handleClick}
         />
       </div>

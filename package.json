@@ -37,7 +37,8 @@
     "redux-form": "^7.3.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "reset-css": "^3.0.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",
