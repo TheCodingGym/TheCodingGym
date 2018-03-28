@@ -3,6 +3,7 @@ import { Component } from 'react';
 import axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
 import '../../css/Landing.css';
+import { Link } from 'react-router-dom';
 
 const style = {
   margin: '12px auto',
@@ -38,13 +39,15 @@ class LandingPageCategoryButtons extends Component {
   render() {
     return (
       <div id="categoryContainer">
-        <RaisedButton
-          label="Algorithms"
-          value="Algorithms"
-          primary={true}
-          style={style}
-          onClick={this.handleClick}
-        />
+        <Link to="/category">
+          <RaisedButton
+            label="Algorithms"
+            value="Algorithms"
+            primary={true}
+            style={style}
+            onClick={this.handleClick}
+          />
+        </Link>
         <br />
         <RaisedButton
           label="System Design"
