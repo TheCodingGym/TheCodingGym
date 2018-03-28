@@ -7,15 +7,17 @@ import { connect } from 'react-redux';
 class Category extends Component {
   render() {
     const categoryList = this.props.category;
-
+    console.log('==========STATE========', this.props)
     console.log('=== CATEGORY ===', categoryList);
-    
+
     return <div> this is Category Page </div>;
   }
 }
 
-function mapStatetoProps(state) {
-  return { category: state.category };
+function mapStateToProps(state, ownProps) {
+  return {
+    category: ownProps.category
+  };
 }
 
-export default connect(mapStatetoProps)(Category);
+export default connect(mapStateToProps)(Category);

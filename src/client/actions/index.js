@@ -29,17 +29,34 @@ export function createContribution(values, callback) {
   // };
 }
 
-export function fetchQuestions(category, callback) {
-  const request = axios({
+export const fetchQuestions = category => async dispatch => {
+  const request = await axios({
     method: 'post',
     url: 'api/questions/',
     data: { category }
-  }).then(() => callback());
+  });
 
-  console.log('=== FROM ACTIONS ===', request);
+  console.log('=== ACTION ===', request);
 
-  return {
+  dispatch({
     type: FETCH_QUESTIONS,
     payload: request
-  };
-}
+  });
+};
+
+// export function fetchQuestions(category, callback) {
+//   const request = axios({
+//     method: 'post',
+//     url: 'api/questions/',
+//     data: { category }
+//   });
+
+//   // .then(() => callback());
+
+//   console.log('=== FROM ACTIONS ===', request);
+
+//   return {
+//     type: FETCH_QUESTIONS,
+//     payload: request
+//   };
+// }

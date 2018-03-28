@@ -1,14 +1,11 @@
 // REACT
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import { withRouter } from 'react-router'
 // REDUX
 import { connect } from 'react-redux';
-
 // ACTION CREATOR
 import { fetchQuestions } from './../../actions';
-
 // MATERIAL UI & CSS
 import RaisedButton from 'material-ui/RaisedButton';
 import '../../css/Landing.css';
@@ -76,4 +73,4 @@ class LandingPageCategoryButtons extends Component {
   }
 }
 
-export default connect(null, { fetchQuestions })(LandingPageCategoryButtons);
+export default withRouter(connect(null, { fetchQuestions })(LandingPageCategoryButtons));
