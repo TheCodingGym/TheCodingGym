@@ -28,7 +28,7 @@ class LandingPageCategoryButtons extends Component {
   handleClick = e => {
     let category = e.currentTarget.value;
     this.props.fetchQuestions(category, () => {
-      this.props.history.push('/category');
+      // this.props.history.push('/category');
     });
 
     // this.props.fetchQuestions(category).then(() => {
