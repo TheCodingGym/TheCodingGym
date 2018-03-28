@@ -30,7 +30,7 @@ router
         let category = req.body.category;
         QandA.find({ category: category }, (err, question) => {
           // console.log('this is q: ', question)
-          console.log('this is length of request', question.length);
+          // console.log('this is length of request', question.length);
           let results = [];
           for (let i = 0; i < question.length; i++) {
             let categoryQ = question[i].question;
