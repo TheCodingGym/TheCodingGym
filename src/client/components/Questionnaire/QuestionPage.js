@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CategoryName from './categoryName';
-import Backbutton from './backButton';
+import BackButton from './backButton';
 import NextQuestionButton from './nextQuestionButton'
 class QuestionPage extends Component {
   render() {
@@ -9,7 +9,7 @@ class QuestionPage extends Component {
         <CategoryName />
       </div>
       <div style={styles.backButton}>
-        <Backbutton />
+        <BackButton />
       </div>
       <div style={styles.nextQuestionButton}>
         <NextQuestionButton />
