@@ -1,21 +1,21 @@
-import React from "react";
-import { Component } from "react";
-import axios from "axios";
-import RaisedButton from "material-ui/RaisedButton";
-import "../../css/Landing.css";
+import React from 'react';
+import { Component } from 'react';
+import axios from 'axios';
+import RaisedButton from 'material-ui/RaisedButton';
+import '../../css/Landing.css';
 
 const style = {
-  margin: "12px auto",
+  margin: '12px auto',
   width: 300,
   height: 50,
-  display: "block"
+  display: 'block'
 };
 
 class LandingPageCategoryButtons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: ""
+      category: ''
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -23,13 +23,13 @@ class LandingPageCategoryButtons extends Component {
     let category = e.currentTarget.value;
     console.log(category);
     axios({
-      method: "post",
-      url: "api/questions/",
+      method: 'post',
+      url: 'api/questions/',
       data: { category }
     }).then(res => {
       const category = res.data;
       // this.setState({ category });
-      console.log("this is the data sent", category); //check back here, why di dthis not console
+      console.log('this is the data sent', category); //check back here, why di dthis not console
     });
   }
   // componentDidMount() {
