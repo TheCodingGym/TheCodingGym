@@ -18,13 +18,28 @@ export function createContribution(values, callback) {
     type: CREATE_CONTRIBUTION,
     payload: request
   };
+  // PLEASE IGNORE BELOW FOR NOW
+  // export const createContribution = values => async dispatch => {
+  //   const request = await axios.post('/questions', values);
+  //   console.log('submitContribution values === ', values);
+  //   return {
+  //     type: CREATE_CONTRIBUTION,
+  //     payload: request
+  //   };
+  // };
 }
-// PLEASE IGNORE BELOW FOR NOW
-// export const createContribution = values => async dispatch => {
-//   const request = await axios.post('/questions', values);
-//   console.log('submitContribution values === ', values);
-//   return {
-//     type: CREATE_CONTRIBUTION,
-//     payload: request
-//   };
-// };
+
+export function fetchQuestions(category, callback) {
+  const request = axios({
+    method: 'post',
+    url: 'api/questions/',
+    data: { category }
+  }).then(() => callback());
+
+  console.log('=== FROM ACTIONS ===', request);
+
+  return {
+    type: FETCH_QUESTIONS,
+    payload: request
+  };
+}
