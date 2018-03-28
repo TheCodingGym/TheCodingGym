@@ -58,7 +58,6 @@ class ContributorForm extends Component {
     console.log('=== CREATECONTRIBUTION === ', this.props.createContribution);
 
     this.props.createContribution(values, () => {
-      console.log('=== HEERRRREEEEEEE ====');
       this.props.history.push('/');
     });
   }

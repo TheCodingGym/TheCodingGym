@@ -1,7 +1,7 @@
 // REACT
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 // REDUX
 import { connect } from 'react-redux';
@@ -27,14 +27,13 @@ class LandingPageCategoryButtons extends Component {
 
   handleClick = e => {
     let category = e.currentTarget.value;
-    this.props.fetchQuestions(category, () => {
-      this.props.history.push('/category');
-    });
-
-    // this.props.fetchQuestions(category).then(() => {
-    //   console.log('=== RIGHT HEREEEEE ===');
+    // this.props.fetchQuestions(category, () => {
     //   this.props.history.push('/category');
     // });
+
+    this.props.fetchQuestions(category).then(() => {
+      this.props.history.push('/category');
+    });
   };
 
   render() {
@@ -76,4 +75,4 @@ class LandingPageCategoryButtons extends Component {
   }
 }
 
-export default connect(null, { fetchQuestions })(LandingPageCategoryButtons);
+export default withRouter(connect(null, { fetchQuestions })(LandingPageCategoryButtons));
