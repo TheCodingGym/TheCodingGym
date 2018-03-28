@@ -3,6 +3,7 @@ import { Component } from 'react';
 import axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
 import '../../css/Landing.css';
+import CategoryList from '../Category/CategoryList';
 import { Link } from 'react-router-dom';
 
 const style = {
@@ -16,10 +17,12 @@ class LandingPageCategoryButtons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: ''
+      category: '',
+      results: ''
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick(e) {
     let category = e.currentTarget.value;
     console.log(category);
@@ -28,9 +31,11 @@ class LandingPageCategoryButtons extends Component {
       url: 'api/questions/',
       data: { category }
     }).then(res => {
-      const category = res.data;
-      // this.setState({ category });
-      console.log('this is the data sent', category); //check back here, why di dthis not console
+      this.setState({
+        category: category,
+        results: res.data.results
+      });
+      console.log('this is the data sent back from post', res.data.results); //check back here, why di dthis not console
     });
   }
   // componentDidMount() {
