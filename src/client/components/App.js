@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-
+import Navbar from './Landing/navbar';
 import Landing from './Landing/Landing';
 import Category from './Category/Category';
 import QuestionPage from './Questionnaire/QuestionPage';

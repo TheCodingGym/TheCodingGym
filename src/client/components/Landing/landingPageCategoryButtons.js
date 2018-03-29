@@ -5,10 +5,8 @@ import { withRouter } from 'react-router';
 
 // REDUX
 import { connect } from 'react-redux';
-
 // ACTION CREATOR
 import { fetchQuestions } from './../../actions';
-
 // MATERIAL UI & CSS
 import RaisedButton from 'material-ui/RaisedButton';
 import '../../css/Landing.css';

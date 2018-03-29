@@ -9,22 +9,20 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 class Category extends Component {
-  // renderQuestions = () => {
-  //   return _.map(categoryList, question => {
-  //     console.log('QUESTION', question);
-  //     return (
-  //       <li className="list-group-item">
-  //         <Link to="/questionpage">{question}</Link>
-  //       </li>
-  //     );
-  //   });
-  // };
-
   render() {
-    return (
-      <div id="questionList" />
+    const categoryList = this.props.category;
+    console.log('==========STATE========', this.props);
+    console.log('=== CATEGORY ===', categoryList);
+    let arr = categoryList[0].results;
+    let questions = arr.map(function(el) {
+      return el.question;
+    });
+    console.log('this is questions', questions);
 
-      // {/* <ul className="list-group">{this.renderQuestions()}</ul> */}
+    return (
+      <div id="questionList">
+        <ul>{questions.map(i => <li key={i}>{i}</li>)}</ul>
+      </div>
     );
   }
 }

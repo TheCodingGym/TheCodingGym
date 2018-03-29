@@ -12,7 +12,6 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <LandingContainer>
           <LandingPageCategoryButtons />
           <GitHubLoginContainer>
