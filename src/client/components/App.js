@@ -5,7 +5,7 @@ import Landing from "./Landing/Landing";
 import Category from "./Category/Category";
 import QuestionPage from "./Questionnaire/QuestionPage";
 import ContributorForm from "./Contributor/ContributorForm";
-
+import AnswerPage from "./Questionnaire/AnswerPage"
 import reset from "reset-css";
 
 class App extends Component {
@@ -22,6 +22,7 @@ class App extends Component {
         <Navbar />
         <main>
           <Switch>
+            <Route path="/answerpage" component={AnswerPage} />
             <Route path="/category" component={Category} />
             <Route path="/questionpage" component={QuestionPage} />
             <Route path="/contributor" component={ContributorForm} />

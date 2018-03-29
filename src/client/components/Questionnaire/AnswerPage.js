@@ -4,10 +4,10 @@ import BackButton from './backButton';
 import NextQuestionButton from './nextQuestionButton'
 import GetAnswerButton from './getAnswerButton';
 import QuestionBox from './questionBox'
-import { Link } from "react-router-dom";
+import AnswerBox from './answerBox'
 
 
-class QuestionPage extends Component {
+class AnswerPage extends Component {
   render() {
     return <div>
       <div style={styles.categoryName}>
@@ -16,10 +16,8 @@ class QuestionPage extends Component {
       <div style={styles.questionBox}>
         <QuestionBox />
       </div>
-      <div style={styles.getAnswerButton}>
-        <Link to="/answerpage">
-          <GetAnswerButton />
-        </Link>
+      <div style={styles.answerBox}>
+        <AnswerBox />
       </div>
       <div style={styles.backButton}>
         <BackButton />
@@ -46,9 +44,9 @@ const styles = {
     top: 810,
     left: 1390,
   },
-  getAnswerButton: {
+  answerBox: {
     position: 'absolute',
-    top: 750,
+    top: 630,
     left: 320,
   },
   questionBox: {
@@ -57,4 +55,4 @@ const styles = {
     left: 320,
   }
 }
-export default QuestionPage;
+export default AnswerPage;
