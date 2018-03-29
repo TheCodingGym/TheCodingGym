@@ -1,22 +1,27 @@
-import React from "react";
-import AppBar from "material-ui/AppBar";
-import IconButton from "material-ui/IconButton";
-import NavigationClose from "material-ui/svg-icons/navigation/close";
-import FlatButton from "material-ui/FlatButton";
-import GitHubLoginButton from "./gitHubLoginButton";
-import logo from './../../assets/logo.svg';
+import React from 'react';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import FlatButton from 'material-ui/FlatButton';
+import GitHubLoginButton from './gitHubLoginButton';
+// import logo from './../../assets/logo.svg';
 
 function handleClick() {
-  alert("onClick triggered on the title component");
+  alert('onClick triggered on the title component');
 }
 
 const styles = {
   title: {
-    cursor: "pointer"
+    cursor: 'pointer'
   },
   gitHub: {
-    backgroundColor: "black"
+    backgroundColor: 'black'
   }
+};
+
+const image_style = {
+  height: '50px',
+  width: 'auto'
 };
 
 /**
@@ -25,12 +30,15 @@ const styles = {
  */
 const Navbar = () => (
   <AppBar
-    title={<span style={styles.title}><img src={logo} /></span>}
-    onTitleClick={handleClick}
-    // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-    iconElementRight={
-      <GitHubLoginButton className="gitHubLogin" style={styles.gitHub} />
+    title={
+      <img
+        style={image_style}
+        src={'https://www.polymer-project.org/images/logos/p-logo.png'}
+      />
     }
+    // onTitleClick={handleClick}
+    // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+    iconElementRight={<GitHubLoginButton className="gitHubLogin" style={styles.gitHub} />}
   />
 );
 

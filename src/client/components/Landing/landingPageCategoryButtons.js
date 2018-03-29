@@ -25,45 +25,58 @@ const nested_style = {
   display: 'block'
 };
 
-
 class LandingPageCategoryButtons extends Component {
   constructor(props) {
     super(props);
   }
 
   handleClick = e => {
-
     let topic = e.currentTarget.value;
-    console.log('this is topic', topic)
-    let allTopics = [['Algorithm', 'Sort', 'Recursion', 'Asymptomatic Notation', 'Data Structures'],['System Design','Principles', 'System Design Patterns', 'Scalability', 'CAP Theorem'],['Front End','ReactJS','Angular', 'JavaScript','Vue','Ember','Redux','jQuery'],['Back End','Node/Express', 'PHP', '.NET', 'Ruby on Rails','SQL','NoSQL','Java']];
+    console.log('this is topic', topic);
+    let allTopics = [
+      ['Algorithm', 'Sort', 'Recursion', 'Asymptomatic Notation', 'Data Structures'],
+      [
+        'System Design',
+        'Principles',
+        'System Design Patterns',
+        'Scalability',
+        'CAP Theorem'
+      ],
+      [
+        'Front End',
+        'ReactJS',
+        'Angular',
+        'JavaScript',
+        'Vue',
+        'Ember',
+        'Redux',
+        'jQuery'
+      ],
+      ['Back End', 'Node/Express', 'PHP', '.NET', 'Ruby on Rails', 'SQL', 'NoSQL', 'Java']
+    ];
     let category;
-    // let result = [];
-    let getCategory;
+    let getCategoryIndex;
 
-    for (let i=0; i<allTopics.length; i++) {
-        if (allTopics[i].includes(topic)) getCategory = i;
+    for (let i = 0; i < allTopics.length; i++) {
+      if (allTopics[i].includes(topic)) getCategoryIndex = i;
     }
-    console.log('this is getCategory', getCategory);
-    switch (getCategory) {
-        case 0:
-            category = "Algorithm";
-            break;
-        case 1:
-            category = "System Design";
-            break;
-        case 2:
-            category = "Front End";
-            break;
-        case 3:
-            category = "Back End";
-            break;
-        default:
-            break;
+    // console.log('this is getCategoryIndex', getCategoryIndex);
+    switch (getCategoryIndex) {
+      case 0:
+        category = 'Algorithm';
+        break;
+      case 1:
+        category = 'System Design';
+        break;
+      case 2:
+        category = 'Front End';
+        break;
+      case 3:
+        category = 'Back End';
+        break;
+      default:
+        break;
     }
-    // result.push(category, topic);
-    // this.props.fetchQuestions(category, () => {
-    //   this.props.history.push('/category');
-    // });
 
     this.props.fetchQuestions(category, topic).then(() => {
       this.props.history.push('/category');

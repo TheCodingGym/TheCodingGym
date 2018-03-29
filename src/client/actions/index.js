@@ -22,8 +22,8 @@ export function createContribution(values, callback) {
 
 // FETCH ALL QUESTIONS OF SPECIFIED CATEGORY
 export const fetchQuestions = (category, topic) => async dispatch => {
-  console.log('this is fetchQ category', category)
-  console.log('this is fetchQ topic', topic)
+  console.log('this is fetchQ category', category);
+  console.log('this is fetchQ topic', topic);
 
   const request = await axios({
     method: 'post',
@@ -40,11 +40,10 @@ export const fetchQuestions = (category, topic) => async dispatch => {
 };
 
 // FETCH SPECIFIC QUESTION
-// export const fetchQuestion = question => async dispatch => {
-//   const request = '';
+export const fetchQuestion = e => async dispatch => {
 
-//   dispatch({
-//     type: FETCH_QUESTION,
-//     payload: request
-//   });
-// };
+  dispatch({
+    type: FETCH_QUESTION,
+    payload: e
+  });
+};
