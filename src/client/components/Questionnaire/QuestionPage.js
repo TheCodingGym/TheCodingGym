@@ -12,107 +12,88 @@ import _ from 'lodash';
 import Paper from 'material-ui/Paper';
 import NextQuestionButton from './nextQuestionButton';
 import GetAnswerButton from './getAnswerButton';
-// import CategoryName from './categoryName';
-// import QuestionBox from './questionBox';
-// import BackButton from './backButton';
-let clicked = false;
+import './../../css/Question_Page.css';
 
 class QuestionPage extends Component {
-  // constructor(props) {
-  //   super(props);
   //   const { category } = this.props;
   //   const { question } = category;
   //   const { answer } = category;
   //   const { topic } = category;
-  // }
 
-  // renderAnswer = () => {
-  //   const answer = this.props.category.answer;
-  //   let result;
-
-  //   switch (clicked) {
-  //     case false:
-  //       console.log('FALSE');
-  //       clicked = true;
-  //       result = <button onClick={this.renderAnswer}>get answer</button>;
-  //     case true:
-  //       console.log('TRUE');
-  //       result = <button onClick={this.renderAnswer}>{answer}</button>;
-  //   }
-  //   return result;
-  // };
+  renderAnswer = () => {
+    let answer_element = document.createElement('div');
+    answer_element.textContent = this.props.category.answer;
+    document.querySelector('#answer').appendChild(answer_element);
+    const btn = document.querySelector('#answer-btn');
+    document.querySelector('#remove-btn').removeChild(btn);
+  };
 
   render() {
-    const style = {
-      height: 410,
-      width: 1000,
-      margin: 20,
-      textAlign: 'center',
-      display: 'inline-block',
-      color: 'black'
-    };
-
-    const { category } = this.props;
-    const { question } = category;
-    const { answer } = category;
-    const { topic } = category;
-
     return (
-      <div>
-        {/* <div style={styles.categoryName}>
-          <CategoryName />
-        </div> */}
+      <div className="questionpage-container container">
+        <div className="questionpage-category-container container">
+          {/* <Paper style={category_style} zDepth={2}>
+            {this.props.category.category}
+          </Paper> */}
 
-        <div>
-          <Paper style={style} zDepth={2}>
+          <div className="questionpage-category-paper container">
+            {this.props.category.category}
+          </div>
+        </div>
+
+        <div className="questionpage-question-container container">
+          {/* <Paper style={style} zDepth={2}>
             {this.props.category.question}
-          </Paper>
+          </Paper> */}
+
+          <div className="questionpage-question-paper container">
+            {this.props.category.question}
+          </div>
         </div>
 
-        {/* <div style={styles.getAnswerButton}> */}
-        <div>
-          {this.renderAnswer()}
-          {/* <button onClick={this.renderAnswer}>answer</button> */}
-          {/* <GetAnswerButton onClick={this.renderAnswer} /> */}
+        <div className="questionpage-answer-btn-container container" id="remove-btn">
+          <button
+            className="questionpage-answer-btn btn btn-primary"
+            id="answer-btn"
+            onClick={this.renderAnswer}>
+            get answer
+          </button>
         </div>
-        {/* </div> */}
 
-        <Link to="/category" className="contributor-back-btn btn btn-danger">
-          Back
-        </Link>
-        <div style={styles.nextQuestionButton}>
+        <div className="questionpage-answer-container container">
+          <div className="questionpage-answer" id="answer" />
+        </div>
+
+        <div className="questionpage-back-btn-container container">
+          <Link to="/category" className="questionpage-back-btn btn btn-danger">
+            Back
+          </Link>
+        </div>
+
+        {/* <div style={styles.nextQuestionButton}>
           <NextQuestionButton />
-        </div>
+        </div> */}
       </div>
     );
   }
 }
 
-const styles = {
-  categoryName: {
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  backButton: {
-    position: 'absolute',
-    top: 810,
-    left: 50
-  },
-  nextQuestionButton: {
-    position: 'absolute',
-    top: 810,
-    left: 1390
-  },
-  getAnswerButton: {
-    position: 'absolute',
-    top: 750,
-    left: 320
-  }
-  // questionBox: {
-  //   position: 'absolute',
-  //   top: 180,
-  //   left: 320
-  // }
+const style = {
+  height: 410,
+  width: 1000,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+  color: 'black'
+};
+
+const category_style = {
+  height: 70,
+  width: 700,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+  color: 'black'
 };
 
 function mapStateToProps(state) {
