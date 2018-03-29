@@ -51,10 +51,6 @@ class ContributorForm extends Component {
   onSubmit(values) {
     //if reduxform(handleSubmit) says that everything is valid... then call onSubmit
     console.log('onSubmit values=== ', values);
-    // this.props.createContribution(values).then(() => {
-    //   console.log('=== HEREEEEEEEEEE ====');
-    //   this.props.history.push('/');
-    // });
     console.log('=== CREATECONTRIBUTION === ', this.props.createContribution);
 
     this.props.createContribution(values, () => {

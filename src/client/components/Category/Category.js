@@ -8,20 +8,23 @@ import { connect } from 'react-redux';
 // LODASH
 import _ from 'lodash';
 
+// MATERIAL UI
+import RaisedButton from 'material-ui/RaisedButton';
+
 class Category extends Component {
   render() {
-    const categoryList = this.props.category;
-    console.log('==========STATE========', this.props);
-    console.log('=== CATEGORY ===', categoryList);
-    let arr = categoryList[0].results;
-    let questions = arr.map(function(el) {
-      return el.question;
-    });
-    console.log('this is questions', questions);
+    const style = {
+      margin: 12
+    };
 
     return (
-      <div id="questionList">
-        <ul>{questions.map(i => <li key={i}>{i}</li>)}</ul>
+      <div className="question-container">
+        <div id="questionList" />
+        <div>
+          <Link to='/'>
+            <RaisedButton label="Back" secondary={true} style={style} />
+          </Link>
+        </div>
       </div>
     );
   }
