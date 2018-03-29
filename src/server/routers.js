@@ -21,35 +21,55 @@ router
     let qAndA = new QandA();
     console.log(req.body, 'this is the post method here'); // create a new instance of the model
     qAndA.category = req.body.category;
+    qAndA.topic = req.body.topic;
     qAndA.question = req.body.question; // set the question coming from the request
     qAndA.answer = req.body.answer; // set the answer coming from the request
     qAndA.save(err => {
       if (err) {
         res.send(err);
       } else {
-        let category = req.body.category;
-        QandA.find({ category: category }, (err, question) => {
-
-          let results = [];
-          for (let i = 0; i < question.length; i++) {
-            let category = question[i].category;
-            let quest = question[i].question;
-            let ans = question[i].answer;
-            let id = question[i]._id;
-            if (quest && ans) {
-              results.push({
-                category: category,
-                question: quest,
-                answer: ans,
-                id: id
-              });
+        let selectedTopic = req.body.topic;
+        let selectedCategory = req.body.category;
+        console.log('this is selectedTopic: ', selectedTopic, ' and this is the selectedCategory:  ', selectedCategory);
+          if (selectedTopic === selectedCategory) { //USER SELECTED GENERAL CATEGORY AS TOPIC
+          QandA.find({ category: selectedCategory }, (err, question) => {
+            console.log('this the question returned in back', question)
+            let results = [];
+            for (let i = 0; i < question.length; i++) {
+              let quest = question[i].question;
+              let ans = question[i].answer;
+              let id = question[i]._id;
+              // let id = question[i]._id;
+              if (quest && ans) {
+                results.push({
+                  question: quest,
+                  answer: ans,
+                  id: id
+                });
+              }
             }
+            console.log('this bresults', results)
+            res.json({
+              results
+            });
+          })
+          } else { //USER WANTS SPECIFIC QUESTION TOPICS
+          QandA.find({ topic: selectedTopic }, (err, question) => {
+            console.log('this the question returned in back when a specific topic is selected', question)
+            let results = [];
+            for (let i = 0; i < question.length; i++) {
+              let quest = question[i].question;
+              let ans = question[i].answer;
+              if (quest && ans) {
+                results.push(question[i]);
+              }
+            }
+            res.json({
+              results
+              });
+            })
           }
-          res.json({
-            results
-          });
-        });
-      }
+        }
     });
   })
   .get((req, res) => {

@@ -21,11 +21,14 @@ export function createContribution(values, callback) {
 }
 
 // FETCH ALL QUESTIONS OF SPECIFIED CATEGORY
-export const fetchQuestions = category => async dispatch => {
+export const fetchQuestions = (category, topic) => async dispatch => {
+  console.log('this is fetchQ category', category)
+  console.log('this is fetchQ topic', topic)
+
   const request = await axios({
     method: 'post',
     url: 'api/questions/',
-    data: { category }
+    data: { category, topic }
   });
 
   console.log('=== ACTION ===', request);

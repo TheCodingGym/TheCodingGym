@@ -24,12 +24,40 @@ class LandingPageCategoryButtons extends Component {
   }
 
   handleClick = e => {
-    let category = e.currentTarget.value;
+
+    let topic = e.currentTarget.value;
+    console.log('this is topic', topic)
+    let allTopics = [['Algorithm', 'Sort', 'Recursion', 'Asymptomatic Notation', 'Data Structures'],['System Design','Principles', 'System Design Patterns', 'Scalability', 'CAP Theorem'],['Front End','ReactJS','Angular', 'JavaScript','Vue','Ember','Redux','jQuery'],['Back End','Node/Express', 'PHP', '.NET', 'Ruby on Rails','SQL','NoSQL','Java']];
+    let category;
+    // let result = [];
+    let getCategory;
+
+    for (let i=0; i<allTopics.length; i++) {
+        if (allTopics[i].includes(topic)) getCategory = i;
+    }
+    console.log('this is getCategory', getCategory);
+    switch (getCategory) {
+        case 0:
+            category = "Algorithm";
+            break;
+        case 1:
+            category = "System Design";
+            break;
+        case 2:
+            category = "Front End";
+            break;
+        case 3:
+            category = "Back End";
+            break;
+        default:
+            break;
+    }
+    // result.push(category, topic);
     // this.props.fetchQuestions(category, () => {
     //   this.props.history.push('/category');
     // });
 
-    this.props.fetchQuestions(category).then(() => {
+    this.props.fetchQuestions(category, topic).then(() => {
       this.props.history.push('/category');
     });
   };
@@ -40,6 +68,14 @@ class LandingPageCategoryButtons extends Component {
         <RaisedButton
           label="Algorithm"
           value="Algorithm"
+          primary={true}
+          style={style}
+          onClick={this.handleClick}
+        />
+        <br />
+        <RaisedButton
+          label="Sort"
+          value="Sort"
           primary={true}
           style={style}
           onClick={this.handleClick}

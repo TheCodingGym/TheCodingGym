@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const QandASchema = new Schema({
     category: String,
+    topic: String,
     question: String,
     answer: String
 });
