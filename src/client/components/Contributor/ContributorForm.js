@@ -71,7 +71,7 @@ class ContributorForm extends Component {
     return (
       <div className="contributor-form-container container">
         <div className="contributor-message">
-          <label>Please Select a Category</label>
+          <label>Please Select a Topic</label>
         </div>
         <form
           className="form-container"
@@ -85,10 +85,7 @@ class ContributorForm extends Component {
             <div className="radiobutton-left container">
               <div className="radiobutton-algorithm">
                 <label>Algorithm</label>
-                <Field
-                  fieldTitle="Category:"
-                  name="category"
-                  component={this.renderRadioGroup}>
+                <Field fieldTitle="Topic:" name="topic" component={this.renderRadioGroup}>
                   <RadioButton value="Algorithm" label="Algorithm" />
                   <RadioButton value="Sort" label="Sort" />
                   <RadioButton value="Recursion" label="Recursion" />
@@ -102,10 +99,7 @@ class ContributorForm extends Component {
 
               <div className="radiobutton-system-design">
                 <label>System Design</label>
-                <Field
-                  fieldTitle="Category:"
-                  name="category"
-                  component={this.renderRadioGroup}>
+                <Field fieldTitle="Topic:" name="topic" component={this.renderRadioGroup}>
                   <RadioButton value="System Design" label="System Design" />
                   <RadioButton value="Principles" label="Principles" />
                   <RadioButton
@@ -126,12 +120,9 @@ class ContributorForm extends Component {
             <div className="radiobutton-right container">
               <div className="radiobutton-front-end">
                 <label>Front-End</label>
-                <Field
-                  fieldTitle="Category:"
-                  name="category"
-                  component={this.renderRadioGroup}>
+                <Field fieldTitle="Topic:" name="topic" component={this.renderRadioGroup}>
                   <RadioButton value="Front End" label="Front End" />
-                  <RadioButton value="ReactJS" label="ReactJS" />
+                  <RadioButton value="React" label="ReactJS" />
                   <RadioButton value="Angular" label="Angular" />
                   <RadioButton value="Vue" label="Vue" />
                   <RadioButton value="Ember" label="Ember" />
@@ -143,10 +134,7 @@ class ContributorForm extends Component {
 
               <div className="radiobutton-back-end">
                 <label>Back-End</label>
-                <Field
-                  fieldTitle="Category:"
-                  name="category"
-                  component={this.renderRadioGroup}>
+                <Field fieldTitle="Topic:" name="topic" component={this.renderRadioGroup}>
                   <RadioButton value="Back End" label="Back End" />
                   <RadioButton value="Node/Express" label="Node/Express" />
                   <RadioButton value="PHP" label="PHP" />
@@ -181,8 +169,9 @@ class ContributorForm extends Component {
 
 function validate(values) {
   const errors = {};
-  if (!values.category) {
-    errors.category = 'Select a category';
+
+  if (!values.topic) {
+    errors.topic = 'Select a topic';
   }
   if (!values.question) {
     errors.question = 'Enter a question';
