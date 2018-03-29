@@ -18,12 +18,9 @@ class Category extends Component {
 
   renderQuestions = () => {
     const categoryList = this.props.category;
-    console.log('==========STATE========', this.props);
     console.log('=== CATEGORY ===', categoryList);
     let arr = categoryList[0].results; //returns questions and id
-    // let questions = _.map(arr, el => {
-    //   return el.question;
-    // })
+
     console.log('this is array in renderQ', arr);
     return (
       <div id="questionList">
@@ -31,7 +28,6 @@ class Category extends Component {
           return (
             <Link to="/questionpage">
               <li className="list-group-item" key={el.id}>
-                {' '}
                 {el.question}
               </li>
             </Link>
