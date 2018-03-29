@@ -30,10 +30,16 @@ router
       } else {
         let selectedTopic = req.body.topic;
         let selectedCategory = req.body.category;
-        console.log('this is selectedTopic: ', selectedTopic, ' and this is the selectedCategory:  ', selectedCategory);
-          if (selectedTopic === selectedCategory) { //USER SELECTED GENERAL CATEGORY AS TOPIC
+        // console.log(
+        //   'this is selectedTopic: ',
+        //   selectedTopic,
+        //   ' and this is the selectedCategory:  ',
+        //   selectedCategory
+        // );
+        if (selectedTopic === selectedCategory) {
+          //USER SELECTED GENERAL CATEGORY AS TOPIC
           QandA.find({ category: selectedCategory }, (err, question) => {
-            console.log('this the question returned in back', question)
+            // console.log('this the question returned in back', question);
             let results = [];
             for (let i = 0; i < question.length; i++) {
               let quest = question[i].question;
@@ -44,11 +50,15 @@ router
             }
             res.json({
               results
-              });
-          })
-          } else { //USER WANTS SPECIFIC QUESTION TOPICS
+            });
+          });
+        } else {
+          //USER WANTS SPECIFIC QUESTION TOPICS
           QandA.find({ topic: selectedTopic }, (err, question) => {
-            console.log('this the question returned in back when a specific topic is selected', question)
+            // console.log(
+            //   'this the question returned in back when a specific topic is selected',
+            //   question
+            // );
             let results = [];
             for (let i = 0; i < question.length; i++) {
               let quest = question[i].question;
@@ -59,18 +69,18 @@ router
             }
             res.json({
               results
-              });
-            })
-          }
+            });
+          });
         }
+      }
     });
   })
   .get((req, res) => {
-    console.log(req.data, 'cateogry!!!!');
+    // console.log(req.data, 'cateogry!!!!');
     QandA.find(req.params.questions_id, (err, question) => {
       (err, question) => {
         console.log('we here in get');
-        console.log('this is data from get api side', question);
+        // console.log('this is data from get api side', question);
         // let category = question.category;
         // let questionList = question.question;
         if (err) {
@@ -86,9 +96,9 @@ router
     });
   });
 router
-  .route('/questions/:questions_id') //route added to get question by ID
+  .route('/questions/:id') //route added to get question by ID
   .get((req, res) => {
-    QandA.findById(req.params.questions_id, (err, question) => {
+    QandA.findById(req.params.id, (err, question) => {
       if (err) {
         res.send(err);
         console.log('got an err up in hurr');

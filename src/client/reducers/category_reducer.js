@@ -1,11 +1,15 @@
-import { FETCH_QUESTIONS } from './../actions/types';
+import { FETCH_QUESTIONS, FETCH_QUESTION } from './../actions/types';
 import _ from 'lodash';
 
-export default function(state = {}, action) { //REDUCER
+export default function(state = {}, action) {
+  //REDUCER
   switch (action.type) {
     case FETCH_QUESTIONS:
-      console.log('=== ACTION PAYLOAD ===', action.payload);
       return _.map(action.payload);
+
+    case FETCH_QUESTION:
+      return action.payload;
+
     default:
       return state;
   }
