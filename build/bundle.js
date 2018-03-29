@@ -56098,8 +56098,7 @@ var style = {
   margin: '12px auto',
   width: 300,
   height: 50,
-  display: 'block',
-  backgroundColor: 'black !important'
+  display: 'block'
 };
 
 var nested_style = {
