@@ -4,6 +4,7 @@ import IconButton from "material-ui/IconButton";
 import NavigationClose from "material-ui/svg-icons/navigation/close";
 import FlatButton from "material-ui/FlatButton";
 import GitHubLoginButton from "./gitHubLoginButton";
+import logo from './../../assets/logo.svg';
 
 function handleClick() {
   alert("onClick triggered on the title component");
@@ -24,7 +25,7 @@ const styles = {
  */
 const Navbar = () => (
   <AppBar
-    title={<span style={styles.title}>Logo</span>}
+    title={<span style={styles.title}><img src={logo} /></span>}
     onTitleClick={handleClick}
     // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
     iconElementRight={

@@ -7,7 +7,7 @@ import {
   DELETE_QUESTION
 } from './types';
 
-//values object is the contribution (category, question, answer)
+// CREATE CATEGORY, QUESTION & ANSWER
 export function createContribution(values, callback) {
   console.log('ACTION VALUES === ', values);
 
@@ -18,17 +18,9 @@ export function createContribution(values, callback) {
     type: CREATE_CONTRIBUTION,
     payload: request
   };
-  // PLEASE IGNORE BELOW FOR NOW
-  // export const createContribution = values => async dispatch => {
-  //   const request = await axios.post('/questions', values);
-  //   console.log('submitContribution values === ', values);
-  //   return {
-  //     type: CREATE_CONTRIBUTION,
-  //     payload: request
-  //   };
-  // };
 }
 
+// FETCH ALL QUESTIONS OF SPECIFIED CATEGORY
 export const fetchQuestions = category => async dispatch => {
   const request = await axios({
     method: 'post',
@@ -44,19 +36,12 @@ export const fetchQuestions = category => async dispatch => {
   });
 };
 
-// export function fetchQuestions(category, callback) {
-//   const request = axios({
-//     method: 'post',
-//     url: 'api/questions/',
-//     data: { category }
-//   });
+// FETCH SPECIFIC QUESTION
+// export const fetchQuestion = question => async dispatch => {
+//   const request = '';
 
-//   // .then(() => callback());
-
-//   console.log('=== FROM ACTIONS ===', request);
-
-//   return {
-//     type: FETCH_QUESTIONS,
+//   dispatch({
+//     type: FETCH_QUESTION,
 //     payload: request
-//   };
-// }
+//   });
+// };

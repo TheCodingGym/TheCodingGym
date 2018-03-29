@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+// import React, { Component } from 'react';
 
-export default class gitHubLoginContainer extends Component {
-  render() {
-    return <div className="container">{this.props.children}</div>;
-  }
-}
+// export default class gitHubLoginContainer extends Component {
+//   render() {
+//     return <div id="landing-container">{this.props.children}</div>;
+//   }
+// }
