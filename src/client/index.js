@@ -10,7 +10,9 @@ import reduxThunk from 'redux-thunk';
 import promise from 'redux-promise';
 
 // MATERIAL UI
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 // FILES
 import App from './components/App';
