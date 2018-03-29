@@ -38,20 +38,13 @@ router
             for (let i = 0; i < question.length; i++) {
               let quest = question[i].question;
               let ans = question[i].answer;
-              let id = question[i]._id;
-              // let id = question[i]._id;
               if (quest && ans) {
-                results.push({
-                  question: quest,
-                  answer: ans,
-                  id: id
-                });
+                results.push(question[i]);
               }
             }
-            console.log('this bresults', results)
             res.json({
               results
-            });
+              });
           })
           } else { //USER WANTS SPECIFIC QUESTION TOPICS
           QandA.find({ topic: selectedTopic }, (err, question) => {

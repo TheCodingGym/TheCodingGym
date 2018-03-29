@@ -1,0 +1,62 @@
+.contributor-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.contributor-message {
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.radiobutton-left {
+  padding-top: 50px;
+  display: flex;
+}
+
+.radiobutton-right {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  display: flex;
+}
+
+.radiobutton-algorithm {
+  width: 50%;
+}
+
+.radiobutton-system-design {
+  width: 50%;
+}
+
+.radiobutton-front-end {
+  width: 50%;
+}
+
+.radiobutton-back-end {
+  width: 50%;
+}
+
+.question-answer-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.form-group {
+  width: 60%;
+  align-self: center;
+}
+
+.submit-back-btn-container {
+  width: 60%;
+}
+
+.contributor-back-btn {
+  float: left !important;
+}
+.contributor-submit-btn {
+  float: right !important;
+}
