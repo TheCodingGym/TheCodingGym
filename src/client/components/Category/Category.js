@@ -1,21 +1,35 @@
 // REACT
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 // REDUX
 import { connect } from 'react-redux';
 
+// LODASH
+import _ from 'lodash';
+
 class Category extends Component {
+  // renderQuestions = () => {
+  //   return _.map(categoryList, question => {
+  //     console.log('QUESTION', question);
+  //     return (
+  //       <li className="list-group-item">
+  //         <Link to="/questionpage">{question}</Link>
+  //       </li>
+  //     );
+  //   });
+  // };
+
   render() {
-    const categoryList = this.props.category;
+    return (
+      <div id="questionList" />
 
-    console.log('=== CATEGORY ===', categoryList);
-
-    return <div> this is Category Page </div>;
+      // {/* <ul className="list-group">{this.renderQuestions()}</ul> */}
+    );
   }
 }
 
 function mapStateToProps(state) {
-  console.log('=== STATE ===', state);
   return { category: state.category };
 }
 
