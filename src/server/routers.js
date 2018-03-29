@@ -35,11 +35,13 @@ router
             let category = question[i].category;
             let quest = question[i].question;
             let ans = question[i].answer;
+            let id = question[i]._id;
             if (quest && ans) {
               results.push({
                 category: category,
                 question: quest,
-                answer: ans
+                answer: ans,
+                id: id
               });
             }
           }
