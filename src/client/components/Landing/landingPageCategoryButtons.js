@@ -15,7 +15,8 @@ const style = {
   margin: '12px auto',
   width: 300,
   height: 50,
-  display: 'block'
+  display: 'block',
+  backgroundColor: 'black !important'
 };
 
 const nested_style = {
@@ -32,13 +33,14 @@ class LandingPageCategoryButtons extends Component {
 
   handleClick = e => {
     let category = e.currentTarget.value;
-    // this.props.fetchQuestions(category, () => {
-    //   this.props.history.push('/category');
-    // });
 
     this.props.fetchQuestions(category).then(() => {
       this.props.history.push('/category');
     });
+
+    // this.props.fetchQuestions(category, () => {
+    //   this.props.history.push('/category');
+    // });
   };
 
   render() {
@@ -109,8 +111,8 @@ class LandingPageCategoryButtons extends Component {
                 onClick={this.handleClick}
               />
               <RaisedButton
-                label="AngularJS"
-                value="AngularJS"
+                label="Angular"
+                value="Angular"
                 primary={true}
                 style={nested_style}
                 onClick={this.handleClick}
@@ -219,8 +221,8 @@ class LandingPageCategoryButtons extends Component {
                 onClick={this.handleClick}
               />
               <RaisedButton
-                label="PhP"
-                value="PhP"
+                label="PHP"
+                value="PHP"
                 primary={true}
                 style={nested_style}
                 onClick={this.handleClick}

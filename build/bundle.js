@@ -56098,7 +56098,8 @@ var style = {
   margin: '12px auto',
   width: 300,
   height: 50,
-  display: 'block'
+  display: 'block',
+  backgroundColor: 'black !important'
 };
 
 var nested_style = {
@@ -56118,13 +56119,14 @@ var LandingPageCategoryButtons = function (_Component) {
 
     _this.handleClick = function (e) {
       var category = e.currentTarget.value;
-      // this.props.fetchQuestions(category, () => {
-      //   this.props.history.push('/category');
-      // });
 
       _this.props.fetchQuestions(category).then(function () {
         _this.props.history.push('/category');
       });
+
+      // this.props.fetchQuestions(category, () => {
+      //   this.props.history.push('/category');
+      // });
     };
 
     return _this;
@@ -56203,8 +56205,8 @@ var LandingPageCategoryButtons = function (_Component) {
                 onClick: this.handleClick
               }),
               _react2.default.createElement(_RaisedButton2.default, {
-                label: 'AngularJS',
-                value: 'AngularJS',
+                label: 'Angular',
+                value: 'Angular',
                 primary: true,
                 style: nested_style,
                 onClick: this.handleClick
@@ -56314,8 +56316,8 @@ var LandingPageCategoryButtons = function (_Component) {
                 onClick: this.handleClick
               }),
               _react2.default.createElement(_RaisedButton2.default, {
-                label: 'PhP',
-                value: 'PhP',
+                label: 'PHP',
+                value: 'PHP',
                 primary: true,
                 style: nested_style,
                 onClick: this.handleClick
@@ -57831,7 +57833,7 @@ var ContributorForm = function (_Component) {
           _react2.default.createElement(
             'label',
             null,
-            'Please Select a Category'
+            'Please Select a Topic'
           )
         ),
         _react2.default.createElement(
@@ -57855,10 +57857,7 @@ var ContributorForm = function (_Component) {
                 ),
                 _react2.default.createElement(
                   _reduxForm.Field,
-                  {
-                    fieldTitle: 'Category:',
-                    name: 'category',
-                    component: this.renderRadioGroup },
+                  { fieldTitle: 'Topic:', name: 'topic', component: this.renderRadioGroup },
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Algorithm', label: 'Algorithm' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Sort', label: 'Sort' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Recursion', label: 'Recursion' }),
@@ -57879,10 +57878,7 @@ var ContributorForm = function (_Component) {
                 ),
                 _react2.default.createElement(
                   _reduxForm.Field,
-                  {
-                    fieldTitle: 'Category:',
-                    name: 'category',
-                    component: this.renderRadioGroup },
+                  { fieldTitle: 'Topic:', name: 'topic', component: this.renderRadioGroup },
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'System Design', label: 'System Design' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Principles', label: 'Principles' }),
                   _react2.default.createElement(_RadioButton.RadioButton, {
@@ -57907,13 +57903,10 @@ var ContributorForm = function (_Component) {
                 ),
                 _react2.default.createElement(
                   _reduxForm.Field,
-                  {
-                    fieldTitle: 'Category:',
-                    name: 'category',
-                    component: this.renderRadioGroup },
-                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'Front-End', label: 'Front-End' }),
-                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'ReactJS', label: 'ReactJS' }),
-                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'AngularJS', label: 'AngularJS' }),
+                  { fieldTitle: 'Topic:', name: 'topic', component: this.renderRadioGroup },
+                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'Front End', label: 'Front End' }),
+                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'React', label: 'ReactJS' }),
+                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'Angular', label: 'Angular' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Vue', label: 'Vue' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Ember', label: 'Ember' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Redux', label: 'Redux' }),
@@ -57931,13 +57924,10 @@ var ContributorForm = function (_Component) {
                 ),
                 _react2.default.createElement(
                   _reduxForm.Field,
-                  {
-                    fieldTitle: 'Category:',
-                    name: 'category',
-                    component: this.renderRadioGroup },
-                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'Back-End', label: 'Back-End' }),
+                  { fieldTitle: 'Topic:', name: 'topic', component: this.renderRadioGroup },
+                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'Back End', label: 'Back End' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Node/Express', label: 'Node/Express' }),
-                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'PhP', label: 'PhP' }),
+                  _react2.default.createElement(_RadioButton.RadioButton, { value: 'PHP', label: 'PHP' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: '.NET', label: '.NET' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Ruby on Rails', label: 'Ruby on Rails' }),
                   _react2.default.createElement(_RadioButton.RadioButton, { value: 'Java', label: 'Java' }),
@@ -57977,8 +57967,9 @@ var ContributorForm = function (_Component) {
 
 function validate(values) {
   var errors = {};
-  if (!values.category) {
-    errors.category = 'Select a category';
+
+  if (!values.topic) {
+    errors.topic = 'Select a topic';
   }
   if (!values.question) {
     errors.question = 'Enter a question';
