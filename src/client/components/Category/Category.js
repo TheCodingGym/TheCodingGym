@@ -6,8 +6,9 @@ import { withRouter } from 'react-router';
 // REDUX
 import { connect } from 'react-redux';
 
-// MATERIAL UI
+// MATERIAL UI & CSS
 import RaisedButton from 'material-ui/RaisedButton';
+import './../../css/Category.css';
 
 //LODASH
 import _ from 'lodash';
@@ -42,7 +43,7 @@ class Category extends Component {
               <button
                 // onClick={() => this.handleClick(el)}
                 type="submit"
-                className="list-group-item btn btn-primary">
+                className="category-questions list-group-item btn btn-primary">
                 {el.question}
               </button>
             </Link>
@@ -59,7 +60,9 @@ class Category extends Component {
 
     return (
       <div className="category-container container">
-        <div id="categoryTitle">{this.renderCategoryName()}</div>
+        <nav className="navbar navbar-light">
+          <div id="categoryTitle">{this.renderCategoryName()}</div>
+        </nav>
 
         <div className="question-container container">
           <form className="list-group">{this.renderQuestions()}</form>

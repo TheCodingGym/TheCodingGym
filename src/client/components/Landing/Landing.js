@@ -1,5 +1,6 @@
 // REACT
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 // FILES
 import LandingPageCategoryButtons from './landingPageCategoryButtons';
@@ -15,7 +16,9 @@ class Landing extends Component {
         <LandingPageCategoryButtons />
         <div className="github-container">
           <GitHubLoginContainer>
-            <GitHubLoginButton />
+            <Link to="/contributor">
+              <GitHubLoginButton />
+            </Link>
           </GitHubLoginContainer>
         </div>
       </div>

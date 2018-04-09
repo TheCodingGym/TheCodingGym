@@ -20,6 +20,7 @@ const styles = {
 };
 
 const image_style = {
+  marginTop: '10px',
   height: '50px',
   width: 'auto'
 };
@@ -33,11 +34,11 @@ const Navbar = () => (
     title={
       <img
         style={image_style}
-        src={'https://www.polymer-project.org/images/logos/p-logo.png'}
+        src={'https://image.flaticon.com/icons/svg/249/249187.svg'}
       />
     }
-    // onTitleClick={handleClick}
-    // iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+    // title={<p>The Coding Gym</p>}
+    showMenuIconButton={false}
     iconElementRight={<GitHubLoginButton className="gitHubLogin" style={styles.gitHub} />}
   />
 );

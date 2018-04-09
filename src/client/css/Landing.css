@@ -35,7 +35,7 @@ summary {
 }
 
 body {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif !important;
   font-size: 16px;
   line-height: 1.5;
   color: #676e7b;
@@ -50,6 +50,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 .wrapper {
@@ -71,6 +72,17 @@ main {
   order: 1;
   margin: auto;
   /* float: right; */
+}
+
+.category-algorithm {
+  margin-bottom: 60px;
+}
+.category-font-end {
+}
+.category-system-design {
+  margin-bottom: 60px;
+}
+.category-back-end {
 }
 
 .github-container {
