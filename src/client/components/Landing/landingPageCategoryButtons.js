@@ -37,13 +37,22 @@ const image = {
 class LandingPageCategoryButtons extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      category: '',
+      topic: ''
+    }
   }
 
   handleClick = e => {
     let topic = e.currentTarget.value;
-    console.log('this is topic', topic);
     let allTopics = [
-      ['Algorithm', 'Sort', 'Recursion', 'Asymptomatic Notation', 'Data Structures'],
+      [
+        'Algorithm',
+        'Sort',
+        'Recursion',
+        'Asymptomatic Notation',
+        'Data Structures'
+      ],
       [
         'System Design',
         'Principles',
@@ -61,7 +70,16 @@ class LandingPageCategoryButtons extends Component {
         'Redux',
         'jQuery'
       ],
-      ['Back End', 'Node/Express', 'PHP', '.NET', 'Ruby on Rails', 'SQL', 'NoSQL', 'Java']
+      [
+        'Back End',
+        'Node/Express',
+        'PHP',
+        '.NET',
+        'Ruby on Rails',
+        'SQL',
+        'NoSQL',
+        'Java'
+      ]
     ];
     let category;
     let getCategoryIndex;
@@ -90,10 +108,6 @@ class LandingPageCategoryButtons extends Component {
     this.props.fetchQuestions(category, topic).then(() => {
       this.props.history.push('/category');
     });
-
-    // this.props.fetchQuestions(category, () => {
-    //   this.props.history.push('/category');
-    // });
   };
 
   render() {
