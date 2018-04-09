@@ -8,14 +8,17 @@
 .questionpage-category-container {
   text-align: center;
   display: inline-block;
-  width: 700px;
+  width: 300px;
   height: 70px;
+  margin-top: 40px;
 }
 
 .questionpage-category-paper {
   background: white;
   height: 100%;
   width: 100%;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.5);
+  margin-top: 15px;
 }
 
 .questionpage-question-container {
@@ -23,15 +26,19 @@
   display: inline-block;
   width: 100%;
   height: 400px;
+  margin-top: 40px;
 }
 
 .questionpage-question-paper {
   background: white;
+  height: 100%;
+  width: 90%;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.5);
 }
 
 .questionpage-answer-btn-container {
   width: 100%;
-  /* height: 100%; */
+  margin-top: 60px;
   text-align: center;
 }
 
@@ -41,22 +48,57 @@
 }
 
 .questionpage-answer-container {
-  background: white;
-  width: 80%;
+  /* background: white; */
+  width: 90%;
   text-align: center;
-  height: 100px;
+  /* height: 100px; */
+  /* box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.5); */
+  overflow-wrap: break-word;
+  white-space: -webkit-pre-wrap;
+  white-space: normal;
+  white-space: pre-wrap; /* CSS3 */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap; /* Opera <7 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word;
 }
 
-.questionpage-answer {
-  position: relative;
-  top: 50%;
+.questionpage-answer:focus {
+  background: white;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.5);
+  overflow-wrap: break-word;
+  white-space: -webkit-pre-wrap;
+  white-space: normal;
+  white-space: pre-wrap; /* CSS3 */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap; /* Opera <7 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word;
+  padding: 20px;
+  /* height: 150px; */
+}
+
+.questionpage-answer:focus {
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.5);
+  padding: 20px;
 }
 
 .questionpage-back-btn-container {
   width: 100%;
   margin-left: 37px;
+  margin-top: 50px;
 }
 
 .questionpage-back-btn {
   width: 120px;
+}
+
+.questionpage-question {
+  position: relative;
+  top: 50%;
+}
+
+.questionpage-topic {
+  position: relative;
+  top: 40%;
 }

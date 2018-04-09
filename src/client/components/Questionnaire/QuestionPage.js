@@ -32,22 +32,14 @@ class QuestionPage extends Component {
     return (
       <div className="questionpage-container container">
         <div className="questionpage-category-container container">
-          {/* <Paper style={category_style} zDepth={2}>
-            {this.props.category.category}
-          </Paper> */}
-
           <div className="questionpage-category-paper container">
-            {this.props.category.category}
+            <div className="questionpage-topic">{this.props.category.topic}</div>
           </div>
         </div>
 
         <div className="questionpage-question-container container">
-          {/* <Paper style={style} zDepth={2}>
-            {this.props.category.question}
-          </Paper> */}
-
           <div className="questionpage-question-paper container">
-            {this.props.category.question}
+            <div className="questionpage-question">{this.props.category.question}</div>
           </div>
         </div>
 
@@ -65,7 +57,7 @@ class QuestionPage extends Component {
         </div>
 
         <div className="questionpage-back-btn-container container">
-          <Link to="/category" className="questionpage-back-btn btn btn-danger">
+          <Link to="/" className="questionpage-back-btn btn btn-danger">
             Back
           </Link>
         </div>
