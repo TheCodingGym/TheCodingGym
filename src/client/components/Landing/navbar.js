@@ -1,14 +1,13 @@
+// REACT
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+// MATERIAL UI
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
 import GitHubLoginButton from './gitHubLoginButton';
-// import logo from './../../assets/logo.svg';
-
-function handleClick() {
-  alert('onClick triggered on the title component');
-}
 
 const styles = {
   title: {
@@ -19,10 +18,20 @@ const styles = {
   }
 };
 
+const title_style = {
+  cursor: 'pointer',
+  textDecoration: 'none'
+};
+
+const link_style = {
+  textDecoration: 'none',
+  color: 'white',
+  fontSize: '26px'
+};
+
 const image_style = {
-  marginTop: '10px',
   height: '50px',
-  width: 'auto'
+  width: 'auto',
 };
 
 /**
@@ -32,13 +41,18 @@ const image_style = {
 const Navbar = () => (
   <AppBar
     title={
-      <img
-        style={image_style}
-        src={'https://image.flaticon.com/icons/svg/249/249187.svg'}
-      />
+      <Link to="/" style={link_style}>
+        <span style={title_style}>The Coding Gym</span>
+      </Link>
     }
-    // title={<p>The Coding Gym</p>}
-    showMenuIconButton={false}
+    iconElementLeft={
+      <Link to="/">
+        <IconButton tooltip="Home" iconStyle={image_style}>
+          <img src={'https://image.flaticon.com/icons/svg/249/249187.svg'} />
+        </IconButton>
+      </Link>
+    }
+    // showMenuIconButton={false}
     iconElementRight={<GitHubLoginButton className="gitHubLogin" style={styles.gitHub} />}
   />
 );

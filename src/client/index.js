@@ -19,7 +19,6 @@ import App from './components/App';
 import reducers from './reducers';
 
 const store = applyMiddleware(reduxThunk)(createStore); //Redux Store
-// const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <MuiThemeProvider>
