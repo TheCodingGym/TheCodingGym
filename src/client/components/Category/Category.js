@@ -19,6 +19,7 @@ import { fetchQuestion } from './../../actions';
 class Category extends Component {
   handleClick = e => {
     this.props.fetchQuestion(e);
+    console.log('el: ', e)
     // this.props.fetchQuestion(e).then(() => this.props.history.push('/questionpage'));
   };
 
@@ -31,7 +32,7 @@ class Category extends Component {
 
   renderQuestions = () => {
     const categoryList = this.props.category;
-    console.log('=== CATEGORY ===', categoryList);
+    console.log('=== CATEGORYLIST ===', categoryList);
     let arr = categoryList[0].results; //returns questions and id
 
     console.log('this is array in renderQ', arr);
